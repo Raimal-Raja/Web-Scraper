@@ -1,65 +1,61 @@
-# Indeed Job Scraper
+# Web-Scraper
 
-This Python script scrapes job listings from Indeed.com (Pakistan) for a specified job title and exports the results to a CSV file.
+Small Python Indeed scraper prototype that extracts job information and appends results to CSV.
 
-## Features
+## Repository guide
 
-- Scrapes job listings from Indeed.com (Pakistan)
-- Extracts job title, company name, company location, and job URL
-- Exports results to a CSV file
-- Uses cloudscraper to bypass anti-bot measures
+### Contents
 
-## Prerequisites
+- [Indeed_job.py](Indeed_job.py)
+- [Job_results.csv](Job_results.csv)
+- [README.md](README.md)
+- [requirements.txt](requirements.txt)
+- [tests](tests)
 
-Before you begin, ensure you have met the following requirements:
+### Getting started
 
-- Python 3.6+
-- pip (Python package manager)
+```bash
+git clone https://github.com/Raimal-Raja/Web-Scraper.git
+cd Web-Scraper
+```
 
-## Installation
+Create and activate a virtual environment, then install the project dependencies:
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/yourusername/indeed-job-scraper.git
-   ```
-2. Navigate to the project directory:
-   ```
-   cd indeed-job-scraper
-   ```
-3. Install the required packages:
-   ```
-   pip install -r requirements.txt
-   ```
+```bash
+python -m venv .venv
+# Linux/macOS: source .venv/bin/activate
+# Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install -r "requirements.txt"
+```
 
-## Usage
+Application entry point:
 
-1. Open the `scrape_job()` function in the script.
-2. Modify the `job_search` variable to specify the job title you want to search for.
-3. Run the script:
-   ```
-   python indeed_job_scraper.py
-   ```
-4. The results will be saved in `Job_results.csv` in the same directory.
+```bash
+python Indeed_job.py
+```
 
-## Customization
+### Configuration and limitations
 
-- To change the target country, modify the `base_url` variable in the `scrape_job()` function.
-- To adjust the number of results or add more fields, you may need to modify the scraping logic within the `scrape_job()` function.
+Live scraping depends on site permissions, browser availability, current page markup, and anti-bot responses. Passing syntax checks does not verify live collection. Browser-handling code does not guarantee access.
 
-## Dependencies
+### Maintenance fixes
 
-- [cloudscraper](https://github.com/VeNoMouS/cloudscraper): For bypassing Cloudflare's anti-bot page.
-- [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/): For parsing HTML and extracting data.
-- [pandas](https://pandas.pydata.org/): For creating and exporting data to CSV.
+- Use each extracted job ID in its URL.
+- Write the CSV header only once.
+- Handle missing markup and optional company fields; bound HTTP requests.
 
-## Disclaimer
+### Validation
 
-Web scraping may be against the terms of service of some websites. Use this script responsibly and ensure you have permission to scrape the target website. The authors are not responsible for any misuse of this script.
+Reviewed on 2026-10-08. Two regression tests passed with unittest. Python source syntax checks passed. See tests/ for the tested behavior.
 
-## Contributing
+```bash
+python -m unittest discover -s tests -v
+```
 
-Contributions, issues, and feature requests are welcome. Feel free to check [issues page](https://github.com/yourusername/indeed-job-scraper/issues) if you want to contribute.
+### Contributions
 
-## License
+Describe the issue, reproduction steps, environment, and expected behavior when proposing a change. Keep generated environments, credentials, and unnecessary build artifacts out of new commits.
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### License
+
+No top-level license file was found during this review.
