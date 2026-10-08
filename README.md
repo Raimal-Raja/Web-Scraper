@@ -2,13 +2,12 @@
 
 Small Python Indeed scraper prototype that extracts job information and appends results to CSV.
 
-## Repository guide
+## Setup and repository reference
 
-### Contents
+### Project structure
 
 - [Indeed_job.py](Indeed_job.py)
 - [Job_results.csv](Job_results.csv)
-- [README.md](README.md)
 - [requirements.txt](requirements.txt)
 - [tests](tests)
 
@@ -46,11 +45,15 @@ Live scraping depends on site permissions, browser availability, current page ma
 
 ### Validation
 
-Reviewed on 2026-10-08. Two regression tests passed with unittest. Python source syntax checks passed. See tests/ for the tested behavior.
+Audit: 2026-10-08. Repository structure, setup instructions and description were reviewed. 2 existing Python files passed syntax checks; changed files and new regression tests were checked separately. 2 regression tests passed. Syntax checks do not establish full runtime correctness. External APIs, live scraping, GUI interaction, notebook training and production deployment were not comprehensively exercised.
 
 ```bash
 python -m unittest discover -s tests -v
 ```
+
+### Repository description
+
+The short GitHub description is provided in [REPOSITORY_DESCRIPTION.md](REPOSITORY_DESCRIPTION.md).
 
 ### Contributions
 
